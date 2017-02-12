@@ -5,4 +5,9 @@ node 'burrito' {
          ensure   => installed,
          provider => 'yum',
      }
+
+     package { 'zsh':
+         ensure   => installed,
+         provider => 'yum',
+     }
 }
