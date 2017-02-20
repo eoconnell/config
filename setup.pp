@@ -10,4 +10,9 @@ node 'burrito' {
          ensure   => installed,
          provider => 'yum',
      }
+
+     package { 'vim':
+         ensure   => installed,
+         provider => 'yum',
+     }
 }
