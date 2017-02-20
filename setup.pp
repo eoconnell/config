@@ -1,18 +1,16 @@
 
 node 'burrito' {
 
-     package { 'tmux':
-         ensure   => installed,
-         provider => 'yum',
-     }
+     $packages = [
+         'tmux',
+         'vim',
+         'zsh',
+     ]
 
-     package { 'zsh':
-         ensure   => installed,
-         provider => 'yum',
-     }
-
-     package { 'vim':
-         ensure   => installed,
-         provider => 'yum',
+     $packages.each |String $package| {
+         package { "${package}":
+             ensure   => installed,
+             provider => 'yum',
+         }
      }
 }
