@@ -1,6 +1,8 @@
 
 node 'burrito' {
 
+     include ::virtualbox
+
      $packages = [
          'tmux',
          'vim',
