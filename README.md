@@ -12,3 +12,10 @@ $ make              # checks to see if r10k is installed
 $ make install      # installs puppet modules with r10k
 $ sudo make apply   # applies puppet manifest
 ```
+
+Set up git
+
+```bash
+$ git config --global user.email ""
+$ git config --global user.name ""
+```
