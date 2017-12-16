@@ -3,6 +3,12 @@ node 'burrito' {
 
      include ::virtualbox
 
+     # i3wm
+     # i3lock
+     # arandr   # visually manage displays
+     # rofi     # dmenu replacement
+     # compton  # enables opacity amoung other things
+     # i3blocks # i3status replacement
      $packages = [
          'tmux',
          'vim',
