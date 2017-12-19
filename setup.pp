@@ -30,26 +30,4 @@ node 'burrito' {
          submodules => true,
          user       => 'epo',
      }
-
-     $dotfiles = [
-         '.gitconfig',
-         '.screenrc',
-         '.tmux.conf',
-         '.vim',
-         '.vimrc',
-         '.zprofile',
-         '.zsh',
-         '.zshenv',
-         '.zshrc',
-     ]
-
-     $dotfiles.each |String $dotfile| {
-         file { "/home/epo/${dotfile}":
-             ensure => "/home/epo/.dotfiles/${dotfile}",
-         }
-     }
-
-     file { '/home/epo/bin':
-         ensure => '/home/epo/.dotfiles/bin',
-     }
 }
