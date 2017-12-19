@@ -1,5 +1,5 @@
 
-node 'burrito' {
+node burrito {
 
      include ::virtualbox
      include docker
