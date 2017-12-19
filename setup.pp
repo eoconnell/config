@@ -2,6 +2,7 @@
 node 'burrito' {
 
      include ::virtualbox
+     include docker
 
      # i3wm
      # i3lock
