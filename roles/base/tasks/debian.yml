@@ -1,0 +1,20 @@
+---
+- name: update apt
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: install packages
+  apt:
+    name: "{{ packages | join(',') }}"
+  become: yes
+
+- name: remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+  become: yes
+
+- name: remove useless packages from the cache
+  apt:
+    autoclean: yes
+  become: yes

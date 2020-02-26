@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  vars:
+    user: epo
+    dotfiles_path: dotfiles
+    dotfiles_branch: linux
+  roles:
+    - base
+    - dotfiles
