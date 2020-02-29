@@ -1,0 +1,30 @@
+---
+
+- name: speedtest script
+  get_url:
+    url: https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+    dest: /usr/local/bin/speedtest
+    mode: +x
+
+- name: install ruby
+  package:
+    name: ruby
+    state: present
+
+- name: selecta script
+  get_url:
+    url: https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta
+    dest: /usr/local/bin/selecta
+    mode: +x
+
+- name: icdiff script
+  get_url:
+    url: https://raw.githubusercontent.com/jeffkaufman/icdiff/master/icdiff
+    dest: /usr/local/bin/icdiff
+    mode: +x
+
+- name: git-icdiff script
+  get_url:
+    url: https://raw.githubusercontent.com/jeffkaufman/icdiff/master/git-icdiff
+    dest: /usr/local/bin/git-icdiff
+    mode: +x

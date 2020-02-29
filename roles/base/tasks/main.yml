@@ -5,3 +5,6 @@
 
 - name: "{{ ansible_os_family }} tasks"
   include_tasks: "{{ ansible_os_family|lower }}.yml"
+
+- name: install scripts
+  include_tasks: scripts.yml
