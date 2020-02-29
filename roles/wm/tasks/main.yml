@@ -1,0 +1,7 @@
+---
+
+- name: "{{ wm }} vars"
+  include_vars: "{{ wm|lower }}.yml"
+
+- name: "{{ wm }} tasks"
+  include_tasks: "{{ wm|lower }}.yml"

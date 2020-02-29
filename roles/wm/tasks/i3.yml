@@ -1,0 +1,6 @@
+---
+
+- name: install wm packages
+  apt:
+    name: "{{ i3_packages | join(',') }}"
+  become: yes

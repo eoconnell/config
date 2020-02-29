@@ -4,6 +4,8 @@
     user: epo
     dotfiles_path: dotfiles
     dotfiles_branch: linux
+    wm: i3
   roles:
     - base
     - dotfiles
+    - wm
