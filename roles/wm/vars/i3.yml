@@ -5,3 +5,6 @@ i3_packages:
   - i3lock
   - i3status
   - rofi
+  - xinit
+  - x11-xserver-utils
+  - xserver-xorg

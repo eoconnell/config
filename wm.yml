@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  vars:
+    wm: i3
+  roles:
+    - wm
