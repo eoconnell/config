@@ -1,4 +1,4 @@
-packages:
+debian_packages:
   - bash-completion
   - ca-certificates
   - curl
