@@ -9,12 +9,7 @@
   become: yes
   become_user: "{{ user }}"
 
-- name: link bin
+- name: install dotfiles
   make:
     chdir: "/home/{{ user }}/{{ dotfiles_path }}"
-    target: bin
-
-- name: link dotfiles
-  make:
-    chdir: "/home/{{ user }}/{{ dotfiles_path }}"
-    target: dotfiles
+    target: install
