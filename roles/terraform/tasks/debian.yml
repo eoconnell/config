@@ -1,0 +1,17 @@
+---
+
+- apt_key:
+    url: "{{ terraform_gpg_key }}"
+    state: present
+  become: yes
+
+- apt_repository:
+    repo: "deb [arch=amd64] {{ terraform_repo }} buster main"
+    state: present
+  become: yes
+
+- name: install packages
+  apt:
+    name: "{{ terraform_packages | join(',') }}"
+    update_cache: yes
+  become: yes

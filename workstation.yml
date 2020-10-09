@@ -8,5 +8,6 @@
   roles:
     - base
     - dotfiles
+    - terraform
     - heroku
     - wm
