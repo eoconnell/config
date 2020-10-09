@@ -5,6 +5,7 @@
     url: https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
     dest: /usr/local/bin/speedtest
     mode: +x
+  become: yes
 
 - name: install ruby
   package:
@@ -16,15 +17,18 @@
     url: https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta
     dest: /usr/local/bin/selecta
     mode: +x
+  become: yes
 
 - name: icdiff script
   get_url:
     url: https://raw.githubusercontent.com/jeffkaufman/icdiff/master/icdiff
     dest: /usr/local/bin/icdiff
     mode: +x
+  become: yes
 
 - name: git-icdiff script
   get_url:
     url: https://raw.githubusercontent.com/jeffkaufman/icdiff/master/git-icdiff
     dest: /usr/local/bin/git-icdiff
     mode: +x
+  become: yes
