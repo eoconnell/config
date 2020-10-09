@@ -8,6 +8,7 @@
   roles:
     - base
     - dotfiles
+    - ruby
     - terraform
     - heroku
     - wm

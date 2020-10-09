@@ -1,0 +1,35 @@
+---
+
+- name: download ruby-install
+  get_url:
+    url: "https://github.com/postmodern/ruby-install/archive/v{{ ruby_install_version }}.tar.gz"
+    dest: /tmp/ruby-install.tar.gz
+
+- name: download ruby-install
+  unarchive:
+    src: /tmp/ruby-install.tar.gz
+    dest: /usr/local/src/
+  become: yes
+
+- name: build ruby-install
+  make:
+    chdir: "/usr/local/src/ruby-install-{{ ruby_install_version }}"
+    target: install
+  become: yes
+
+- name: download chruby
+  get_url:
+    url: "https://github.com/postmodern/chruby/archive/v{{ chruby_version }}.tar.gz"
+    dest: /tmp/chruby.tar.gz
+
+- name: download chruby
+  unarchive:
+    src: /tmp/chruby.tar.gz
+    dest: /usr/local/src/
+  become: yes
+
+- name: build chruby
+  make:
+    chdir: "/usr/local/src/chruby-{{ chruby_version }}"
+    target: install
+  become: yes
