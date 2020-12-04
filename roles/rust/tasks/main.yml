@@ -1,0 +1,25 @@
+---
+
+- name: "{{ ansible_system }} vars"
+  include_vars: "{{ ansible_system|lower }}.yml"
+
+- name: download rustup-init
+  get_url:
+    url: "https://static.rust-lang.org/rustup/dist/{{ ansible_architecture }}-{{ rustup_ostype }}/rustup-init"
+    dest: /tmp
+    mode: '0755'
+
+- name: install rustup
+  command: /tmp/rustup-init -y
+
+- name: remove rustup-init
+  file:
+    path: /tmp/rustup-init
+    state: absent
+
+- name: install rust-analyzer
+  get_url:
+    url: "https://github.com/rust-analyzer/rust-analyzer/releases/{{ rust_analyzer_version }}/download/rust-analyzer-{{ ansible_system|lower }}"
+    dest: /usr/local/bin/rust-analyzer
+    mode: '0755'
+  become: yes
