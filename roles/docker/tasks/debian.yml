@@ -1,0 +1,22 @@
+---
+
+- apt_key:
+    url: "{{ docker_gpg_key }}"
+    state: present
+  become: yes
+
+- apt_repository:
+    repo: "deb [arch=amd64] {{ docker_repo }} buster stable"
+    state: present
+  become: yes
+
+- name: install packages
+  apt:
+    name: "{{ docker_packages | join(',') }}"
+    update_cache: yes
+  become: yes
+
+- name: create docker group
+  group:
+    name: docker
+    state: present
