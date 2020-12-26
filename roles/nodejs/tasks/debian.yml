@@ -1,0 +1,6 @@
+---
+- name: install packages
+  apt:
+    name: "{{ nodejs_packages | join(',') }}"
+    update_cache: yes
+  become: yes
