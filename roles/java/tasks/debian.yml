@@ -5,3 +5,28 @@
     name: "{{ java_packages | join(',') }}"
     update_cache: yes
   become: yes
+
+- name: download spring-boot cli
+  get_url:
+    url: "https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/{{ spring_cli_version }}/spring-boot-cli-{{ spring_cli_version }}-bin.tar.gz"
+    dest: /tmp
+
+- name: install spring-boot cli
+  unarchive:
+    src: "/tmp/spring-boot-cli-{{ spring_cli_version }}-bin.tar.gz"
+    dest: /opt
+  become: yes
+
+- name: link spring to path
+  file:
+    src: "/opt/spring-{{ spring_cli_version }}/bin/spring"
+    dest: /usr/local/bin/spring
+    state: link
+  become: yes
+
+- name: link spring completion
+  file:
+    src: "/opt/spring-{{ spring_cli_version }}/shell-completion/bash/spring"
+    dest: /etc/bash_completion.d/spring
+    state: link
+  become: yes

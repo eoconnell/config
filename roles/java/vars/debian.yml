@@ -3,4 +3,4 @@ java_packages:
   - openjdk-11-jre
   - openjdk-11-jdk
   - maven
-
+spring_cli_version: 2.5.2
