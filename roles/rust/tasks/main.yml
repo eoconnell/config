@@ -5,7 +5,7 @@
 
 - name: download rustup-init
   get_url:
-    url: "https://static.rust-lang.org/rustup/dist/{{ ansible_architecture }}-{{ rustup_ostype }}/rustup-init"
+    url: "https://static.rust-lang.org/rustup/dist/{{ ansible_architecture }}-{{ rust_ostype }}/rustup-init"
     dest: /tmp
     mode: '0755'
 
@@ -17,9 +17,13 @@
     path: /tmp/rustup-init
     state: absent
 
-- name: install rust-analyzer
+- name: download rust-analyzer
   get_url:
-    url: "https://github.com/rust-analyzer/rust-analyzer/releases/{{ rust_analyzer_version }}/download/rust-analyzer-{{ ansible_system|lower }}"
-    dest: /usr/local/bin/rust-analyzer
+    url: "https://github.com/rust-analyzer/rust-analyzer/releases/{{ rust_analyzer_version }}/download/rust-analyzer-{{ ansible_architecture }}-{{ rust_ostype }}.gz"
+    dest: /usr/local/bin/rust-analyzer.gz
     mode: '0755'
+  become: yes
+
+- name: install rust-analyzer
+  command: gunzip /usr/local/bin/rust-analyzer.gz
   become: yes
