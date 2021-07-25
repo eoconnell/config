@@ -1,0 +1,4 @@
+erlang_repo: deb https://packages.erlang-solutions.com/debian buster contrib
+erlang_apt_key: https://packages.erlang-solutions.com/debian/erlang_solutions.asc
+erlang_packages:
+  - elixir
