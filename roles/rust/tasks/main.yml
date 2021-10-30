@@ -10,7 +10,7 @@
     mode: '0755'
 
 - name: install rustup
-  command: /tmp/rustup-init -y
+  command: /tmp/rustup-init -y --no-modify-path
 
 - name: remove rustup-init
   file:
