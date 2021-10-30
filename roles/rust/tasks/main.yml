@@ -25,5 +25,10 @@
   become: yes
 
 - name: install rust-analyzer
-  command: gunzip /usr/local/bin/rust-analyzer.gz
+  command: gunzip --force /usr/local/bin/rust-analyzer.gz
   become: yes
+
+- name: remove rust-analyzer download
+  file:
+    path: /usr/local/bin/rust-analyzer.gz
+    state: absent
