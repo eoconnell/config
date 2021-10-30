@@ -1,4 +1,6 @@
 ---
-- hosts: localhost
+- name: Play a single role
+  hosts: localhost
+  tasks:
   roles:
     - "{{ role }}"

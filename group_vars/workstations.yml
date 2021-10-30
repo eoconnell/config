@@ -1,0 +1,5 @@
+---
+user: "{{ ansible_user_id }}"
+dotfiles_path: dotfiles
+dotfiles_branch: linux
+wm: i3
