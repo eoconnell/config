@@ -2,6 +2,7 @@ debian_packages:
   - bash-completion
   - ca-certificates
   - curl
+  - diffstat
   - dnsutils
   - gcc
   - git
