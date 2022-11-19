@@ -6,7 +6,7 @@
   become: yes
 
 - apt_repository:
-    repo: "deb [arch=amd64] {{ docker_repo }} buster stable"
+    repo: "deb [arch=amd64] {{ docker_repo }} bullseye stable"
     state: present
   become: yes
 
