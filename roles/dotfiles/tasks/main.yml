@@ -1,15 +1,13 @@
 ---
 
 - name: clone dotfiles
-  git:
+  ansible.builtin.git:
     repo: https://github.com/eoconnell/dotfiles.git
     dest: "/home/{{ user }}/{{ dotfiles_path }}"
     version: " {{ dotfiles_branch }}"
     update: no
-  become: yes
-  become_user: "{{ user }}"
 
 - name: install dotfiles
-  make:
+  ansible.builtin.make:
     chdir: "/home/{{ user }}/{{ dotfiles_path }}"
     target: install
