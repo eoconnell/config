@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+PLAYBOOK=${1:-workstation}
+
+ansible-playbook \
+  --ask-become-pass \
+  --connection=local \
+  --inventory hosts \
+  --limit $(hostname) \
+  "${PLAYBOOK}.yml"
