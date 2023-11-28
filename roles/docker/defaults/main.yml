@@ -1,4 +1,4 @@
-docker_debian_dist: bookworm
+docker_debian_dist: "{{ ansible_distribution_release }}"
 docker_debian_gpg_key: https://download.docker.com/linux/debian/gpg
 docker_debian_repo: https://download.docker.com/linux/debian
 docker_debian_packages:
