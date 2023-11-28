@@ -1,17 +1,19 @@
 ---
 
-- apt_key:
-    url: "{{ terraform_gpg_key }}"
+- ansible.builtin.apt_key:
+    url: "{{ terraform_debian_gpg_key }}"
+    keyring: /etc/apt/keyrings/terraform.gpg
     state: present
   become: yes
 
-- apt_repository:
-    repo: "deb [arch=amd64] {{ terraform_repo }} bullseye main"
+- ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/terraform.gpg] {{ terraform_debian_repo }} {{ terraform_debian_dist }} main"
+    update_cache: false
     state: present
   become: yes
 
 - name: install packages
-  apt:
-    name: "{{ terraform_packages | join(',') }}"
+  ansible.builtin.apt:
+    name: "{{ terraform_debian_packages | join(',') }}"
     update_cache: yes
   become: yes
