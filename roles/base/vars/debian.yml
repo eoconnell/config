@@ -16,7 +16,7 @@ debian_packages:
   - make
   - mount
   - net-tools
-  - rxvt-unicode-256color
+  - rxvt-unicode
   - software-properties-common
   - ssh
   - strace
