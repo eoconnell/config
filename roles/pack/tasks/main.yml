@@ -1,0 +1,5 @@
+---
+
+- name: "{{ ansible_system }} tasks"
+  include_tasks: "{{ ansible_system|lower }}.yml"
+

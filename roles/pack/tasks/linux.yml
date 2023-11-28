@@ -1,0 +1,17 @@
+---
+
+- name: download pack release
+  ansible.builtin.get_url:
+    url: https://github.com/buildpacks/pack/releases/download/v{{ pack_version }}/pack-v{{ pack_version }}-linux.tgz
+    dest: /tmp/pack.tgz
+    mode: '0755'
+
+- name: install pack
+  ansible.builtin.command: tar -C /usr/local/bin --no-same-owner -xzf /tmp/pack.tgz
+  become: yes
+
+- name: remove pack release
+  ansible.builtin.file:
+    path: /tmp/pack.tgz
+    state: absent
+
