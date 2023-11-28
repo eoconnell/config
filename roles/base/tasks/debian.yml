@@ -1,9 +1,9 @@
 ---
 
 - name: disable apt translations
-  lineinfile:
-    path: /etc/apt/apt.conf.d/99translations
-    line: Acquire::Languages "none";
+  ansible.builtin.copy:
+    dest: /etc/apt/apt.conf.d/99translations
+    content: 'Acquire::Languages "none";'
   become: yes
 
 - name: update apt
