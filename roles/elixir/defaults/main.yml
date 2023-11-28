@@ -1,0 +1,8 @@
+---
+erlang_debian_dist: "{{ ansible_distribution_release }}"
+erlang_debian_repo: https://packages.erlang-solutions.com/debian
+erlang_debian_key: https://packages.erlang-solutions.com/debian/erlang_solutions.asc
+erlang_debian_keyring: /etc/apt/keyrings/erlang_solutions.asc
+erlang_debian_packages:
+  - esl-erlang
+  - elixir

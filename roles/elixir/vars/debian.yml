@@ -1,5 +1,0 @@
-erlang_repo: deb https://packages.erlang-solutions.com/debian bullseye contrib
-erlang_apt_key: https://packages.erlang-solutions.com/debian/erlang_solutions.asc
-erlang_packages:
-  - esl-erlang
-  - elixir

@@ -1,17 +1,18 @@
 ---
 
-- apt_key:
-    url: "{{ erlang_apt_key }}"
-    state: present
+- ansible.builtin.get_url:
+    url: "{{ erlang_debian_key }}"
+    dest: "{{ erlang_debian_keyring }}"
   become: yes
 
-- apt_repository:
-    repo: "{{ erlang_repo }}"
+- ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by={{ erlang_debian_keyring }}] {{ erlang_debian_repo }} {{ erlang_debian_dist }} contrib"
+    update_cache: false
     state: present
   become: yes
 
 - name: install packages
-  apt:
-    name: "{{ erlang_packages | join(',') }}"
+  ansible.builtin.apt:
+    name: "{{ erlang_debian_packages | join(',') }}"
     update_cache: yes
   become: yes
