@@ -19,6 +19,7 @@ debian_packages:
   - rxvt-unicode
   - software-properties-common
   - ssh
+  - stow
   - strace
   - sudo
   - tar
