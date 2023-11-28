@@ -1,0 +1,5 @@
+heroku_debian_repo: https://cli-assets.heroku.com/apt
+heroku_debian_key: https://cli-assets.heroku.com/apt/release.key
+heroku_debian_keyring: /etc/apt/keyrings/heroku.key
+heroku_debian_packages:
+  - heroku

@@ -1,21 +1,23 @@
 ---
 
-- apt:
+- ansible.builtin.apt:
     name: apt-transport-https
   become: yes
 
-- apt_key:
-    url: "{{ heroku_apt_key }}"
+- ansible.builtin.apt_key:
+    url: "{{ heroku_debian_key }}"
+    keyring: "{{ heroku_debian_keyring }}"
     state: present
   become: yes
 
-- apt_repository:
-    repo: "deb {{ heroku_repo }} ./"
+- ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by={{ heroku_debian_keyring }}] {{ heroku_debian_repo }} ./"
+    update_cache: false
     state: present
   become: yes
 
 - name: install packages
-  apt:
-    name: "{{ heroku_packages | join(',') }}"
+  ansible.builtin.apt:
+    name: "{{ heroku_debian_packages | join(',') }}"
     update_cache: yes
   become: yes
