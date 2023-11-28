@@ -1,22 +1,24 @@
 ---
 
-- apt_key:
-    url: "{{ docker_gpg_key }}"
+- ansible.builtin.apt_key:
+    url: "{{ docker_debian_gpg_key }}"
+    keyring: /etc/apt/keyrings/docker.gpg
     state: present
   become: yes
 
-- apt_repository:
-    repo: "deb [arch=amd64] {{ docker_repo }} bullseye stable"
+- ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] {{ docker_debian_repo }} {{ docker_debian_dist }} stable"
+    update_cache: false
     state: present
   become: yes
 
 - name: install packages
-  apt:
-    name: "{{ docker_packages | join(',') }}"
+  ansible.builtin.apt:
+    name: "{{ docker_debian_packages | join(',') }}"
     update_cache: yes
   become: yes
 
 - name: create docker group
-  group:
+  ansible.builtin.group:
     name: docker
     state: present
