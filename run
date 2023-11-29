@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-ansible-playbook \
-  --connection=local \
-  --inventory home \
-  --limit $(hostname) \
-  home.yml
