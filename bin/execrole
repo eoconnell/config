@@ -2,4 +2,6 @@
 
 set -e
 
-ansible-playbook role.yml --extra-vars "role=$1"
+ansible-playbook role.yml \
+  --ask-become-pass \
+  --extra-vars "role=$1"
