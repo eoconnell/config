@@ -1,5 +1,0 @@
----
-nodejs_packages:
-  - nodejs
-  - npm
-nvm_version: v0.37.2
