@@ -1,0 +1,21 @@
+---
+
+- name: "{{ ansible_system }} vars"
+  include_vars: "{{ ansible_system|lower }}.yml"
+
+- name: download neovim release
+  ansible.builtin.get_url:
+    url: "https://github.com/neovim/neovim/releases/download/{{ neovim_version }}/nvim-linux64.tar.gz"
+    dest: /tmp
+    mode: '0755'
+
+- name: install neovim
+  ansible.builtin.unarchive:
+    src: /tmp/nvim-linux64.tar.gz
+    dest: /opt
+  become: yes
+
+- name: remove download
+  ansible.builtin.file:
+    path: /tmp/nvim-linux64.tar.gz
+    state: absent

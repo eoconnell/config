@@ -3,6 +3,7 @@
   hosts: workstations
   roles:
     - base
+    - neovim
     - dotfiles
     - docker
     - ruby
