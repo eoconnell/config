@@ -1,0 +1,4 @@
+wezterm_debian_gpg_key: https://apt.fury.io/wez/gpg.key
+wezterm_debian_repo: https://apt.fury.io/wez/
+wezterm_debian_packages:
+  - wezterm

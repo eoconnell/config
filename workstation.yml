@@ -4,6 +4,7 @@
   roles:
     - base
     - neovim
+    - wezterm
     - dotfiles
     - docker
     - ruby

@@ -1,0 +1,19 @@
+---
+
+- ansible.builtin.apt_key:
+    url: "{{ wezterm_debian_gpg_key }}"
+    keyring: /etc/apt/keyrings/wezterm-fury.gpg
+    state: present
+  become: yes
+
+- ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/wezterm-fury.gpg] {{ wezterm_debian_repo }} * *"
+    update_cache: false
+    state: present
+  become: yes
+
+- name: install packages
+  ansible.builtin.apt:
+    name: "{{ wezterm_debian_packages | join(',') }}"
+    update_cache: yes
+  become: yes
