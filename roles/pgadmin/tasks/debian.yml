@@ -1,0 +1,17 @@
+---
+
+- get_url:
+    url: https://www.pgadmin.org/static/packages_pgadmin_org.pub
+    dest: /etc/apt/keyrings/pgadmin.pub
+  become: yes
+
+- apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/pgadmin.pub] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/bullseye pgadmin4 main"
+    update_cache: false
+    state: present
+  become: yes
+
+- apt:
+    name: "pgadmin4,pgadmin4-desktop"
+    update_cache: yes
+  become: yes
