@@ -1,0 +1,17 @@
+---
+
+- get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /etc/apt/keyrings/microsoft.asc
+  become: yes
+
+- apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.asc] https://packages.microsoft.com/repos/vscode stable main"
+    update_cache: false
+    state: present
+  become: yes
+
+- apt:
+    name: code
+    update_cache: yes
+  become: yes
