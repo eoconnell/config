@@ -1,0 +1,19 @@
+---
+
+- ansible.builtin.deb822_repository:
+    name: griffo
+    types: deb
+    uris: "{{ griffo_debian_repo }}"
+    signed_by: "{{ griffo_debian_key }}"
+    suites: "{{ griffo_debian_dist }}"
+    components: main
+    state: present
+    enabled: true
+  become: yes
+
+
+- name: install packages
+  ansible.builtin.apt:
+    name: "{{ griffo_debian_packages | join(',') }}"
+    update_cache: yes
+  become: yes

@@ -5,6 +5,7 @@
     - base
     - neovim
     - dotfiles
+    - ghostty
     - wm
     - docker
     - ruby
