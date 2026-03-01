@@ -17,7 +17,6 @@ debian_packages:
   - mount
   - net-tools
   - rxvt-unicode
-  - software-properties-common
   - ssh
   - stow
   - strace
@@ -29,5 +28,6 @@ debian_packages:
   - vim
   - xclip
   - xcompmgr
+  - xz-utils
   - zip
   - zsh

@@ -4,8 +4,8 @@
   roles:
     - base
     - neovim
-    - wezterm
     - dotfiles
+    - wm
     - docker
     - ruby
     - rust
@@ -13,4 +13,3 @@
     - terraform
     - heroku
     - pack
-    - wm

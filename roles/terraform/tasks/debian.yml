@@ -1,15 +1,14 @@
 ---
 
-- ansible.builtin.apt_key:
-    url: "{{ terraform_debian_gpg_key }}"
-    keyring: /etc/apt/keyrings/terraform.gpg
+- ansible.builtin.deb822_repository:
+    name: docker
+    types: deb
+    uris: "{{ terraform_debian_repo }}"
+    suites: "{{ terraform_debian_dist }}"
+    components: main
+    signed_by: "{{ terraform_debian_gpg_key }}"
     state: present
-  become: yes
-
-- ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/terraform.gpg] {{ terraform_debian_repo }} {{ terraform_debian_dist }} main"
-    update_cache: false
-    state: present
+    enabled: true
   become: yes
 
 - name: install packages

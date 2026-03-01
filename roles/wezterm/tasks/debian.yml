@@ -1,15 +1,15 @@
 ---
 
-- ansible.builtin.apt_key:
-    url: "{{ wezterm_debian_gpg_key }}"
-    keyring: /etc/apt/keyrings/wezterm-fury.gpg
+  # 2026-02-28 wezterm_debian_repo is unavailable
+- ansible.builtin.deb822_repository:
+    name: wezterm
+    types: deb
+    uris: "{{ wezterm_debian_repo }}"
+    suites: "*"
+    components: "*"
+    signed_by: "{{ wezterm_debian_gpg_key }}"
     state: present
-  become: yes
-
-- ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/wezterm-fury.gpg] {{ wezterm_debian_repo }} * *"
-    update_cache: false
-    state: present
+    enabled: true
   become: yes
 
 - name: install packages
