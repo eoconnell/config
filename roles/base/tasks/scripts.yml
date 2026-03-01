@@ -7,18 +7,6 @@
     mode: +x
   become: yes
 
-- name: install ruby
-  package:
-    name: ruby
-    state: present
-
-- name: selecta script
-  get_url:
-    url: https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta
-    dest: /usr/local/bin/selecta
-    mode: +x
-  become: yes
-
 - name: icdiff script
   get_url:
     url: https://raw.githubusercontent.com/jeffkaufman/icdiff/master/icdiff
